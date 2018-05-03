@@ -14,11 +14,16 @@ milp_plot <- function(A, b, cv) {
   A <- as.matrix(A)
   b <- as.numeric(b)
   cv <- as.numeric(cv)
+
+  offset <- 10L
+
   df_A <- matrix_to_df(A)
   df_A$type <- "A"
+  df_A$row <- df_A$row + offset
 
   df_b <- matrix_to_df(matrix(b, ncol = 1, nrow = ncol(A)))
-  df_b$column <- ncol(A) + 1L
+  df_b$column <- ncol(A) + offset
+  df_b$row <- df_b$row + offset
   df_b$type <- "b"
 
   df_cv <- matrix_to_df(matrix(cv, ncol = ncol(A), nrow = 1))
@@ -35,8 +40,7 @@ milp_plot <- function(A, b, cv) {
     scale_y_continuous(position = "left", trans = "reverse") +
     ggtitle(label = paste0(ncol(A), " variables, ",
                            nrow(A), " constraints, ",
-                           sum(A > 0), " non-zeros"),
-            subtitle = "First row is the objective vector 'c'. The last column is the right-hand side vector 'b'.")
+                           sum(A > 0), " non-zeros"))
 }
 
 matrix_to_df <- function(mat) {

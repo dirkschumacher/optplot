@@ -81,7 +81,7 @@ cv <- ompr::objective_function(model)$solution
 ```
 
 
-```{r}
+```{r milp-plot}
 optplot::milp_plot(A, b, cv)
 ```
 

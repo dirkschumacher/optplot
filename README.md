@@ -81,4 +81,4 @@ cv <- ompr::objective_function(model)$solution
 optplot::milp_plot(A, b, cv)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-milp-plot-1.png" width="100%" />
