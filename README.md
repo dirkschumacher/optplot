@@ -1,14 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-optplot
-=======
 
-The goal of `optplot` is provide functions to plot optimization problems/models such as mixed-integer linear programs. Work in progress. Contributions welcome.
+# optplot
 
-Installation
-------------
+The goal of `optplot` is provide functions to plot optimization
+problems/models such as mixed-integer linear programs. Work in progress.
+Contributions welcome.
 
-You can install the released version of optplot from [CRAN](https://CRAN.R-project.org) with:
+[![Travis build
+status](https://travis-ci.org/dirkschumacher/optplot.svg?branch=master)](https://travis-ci.org/dirkschumacher/optplot)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/optplot)](https://cran.r-project.org/package=optplot)
+
+## Installation
+
+You can install the released version of optplot from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("optplot")
@@ -21,10 +29,10 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("dirkschumacher/optplot")
 ```
 
-Example
--------
+## Example
 
-This is a basic example which shows you how to plot the popular Travling Salesperson Problem. It uses the `ompr` package to model the MILP.
+This is a basic example which shows you how to plot the popular Travling
+Salesperson Problem. It uses the `ompr` package to model the MILP.
 
 ``` r
 # based on the Miller–Tucker–Zemlin (MTZ) formulation
@@ -58,7 +66,9 @@ model <- MILPModel() %>%
   add_constraint(u[i] - u[j] + 1 <= (n - 1) * (1 - x[i, j]), i = 2:n, j = 2:n)
 ```
 
-Having defined the model, we can extract the constraint matrix *A*, the right hand side vector *b* and the objective coefficent vector *c*.
+Having defined the model, we can extract the constraint matrix \(A\),
+the right hand side vector \(b\) and the objective coefficent vector
+\(c\).
 
 ``` r
 mat <- ompr::extract_constraints(model)

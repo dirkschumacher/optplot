@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 
 The goal of `optplot` is provide functions to plot optimization problems/models such as mixed-integer linear programs. Work in progress. Contributions welcome.
 
+[![Travis build status](https://travis-ci.org/dirkschumacher/optplot.svg?branch=master)](https://travis-ci.org/dirkschumacher/optplot)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/optplot)](https://cran.r-project.org/package=optplot)
+
 ## Installation
 
 You can install the released version of optplot from [CRAN](https://CRAN.R-project.org) with:

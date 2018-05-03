@@ -1,7 +1,7 @@
 Package: optplot
-Version: 0.0.0.9000
+Version: 0.0.1.9000
 Title: Plot optimization problems
-Description: What the package does (one paragraph).
+Description: Functions to visualize optimization problems, such as mixed-integer linear programs.
 Authors@R: person("Dirk", "Schumacher", , "mail@dirk-schumacher.net", c("aut", "cre"))
 License: MIT + file LICENSE
 Encoding: UTF-8
