@@ -1,12 +1,22 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-optplot
-=======
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# optplot
 
 The goal of `optplot` is provide functions to plot optimization problems/models such as mixed-integer linear programs. Work in progress. Contributions welcome.
 
-Installation
-------------
+## Installation
 
 You can install the released version of optplot from [CRAN](https://CRAN.R-project.org) with:
 
@@ -20,13 +30,11 @@ And the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("dirkschumacher/optplot")
 ```
-
-Example
--------
+## Example
 
 This is a basic example which shows you how to plot the popular Travling Salesperson Problem. It uses the `ompr` package to model the MILP.
 
-``` r
+```{r example}
 # based on the Miller–Tucker–Zemlin (MTZ) formulation
 # More info here: https://www.unc.edu/~pataki/papers/teachtsp.pdf)
 library(ompr)
@@ -58,17 +66,18 @@ model <- MILPModel() %>%
   add_constraint(u[i] - u[j] + 1 <= (n - 1) * (1 - x[i, j]), i = 2:n, j = 2:n)
 ```
 
-Having defined the model, we can extract the constraint matrix *A*, the right hand side vector *b* and the objective coefficent vector *c*.
 
-``` r
+Having defined the model, we can extract the constraint matrix $A$, the right hand side vector $b$ and the objective coefficent vector $c$.
+
+```{r}
 mat <- ompr::extract_constraints(model)
 A <- mat$matrix
 b <- mat$rhs
 cv <- ompr::objective_function(model)$solution
 ```
 
-``` r
+
+```{r}
 optplot::milp_plot(A, b, cv)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
